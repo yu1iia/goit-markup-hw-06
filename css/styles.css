@@ -771,7 +771,6 @@
  }
  .modal-form-field > input{
   display: flex;
-
   margin: 0 auto;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
@@ -779,6 +778,9 @@
  .modal-form-input {
   width: 448px;
   height: 40px;
+ }
+ .modal-form-input {
+  padding-left:40px;
  }
  .modal-form-field:not(:last-child) > input {
   margin-bottom: 10px;
@@ -802,6 +804,9 @@
   border: 1px solid var(--accent-color);
   cursor: pointer;
   }
+.modal-form-field textarea {
+  padding: 12px 0 0 16px;
+}
 .modal-form-comment {
   position: relative;
   display: block;
@@ -825,21 +830,17 @@
   color: rgba(117, 117, 117, 0.5);
 }
 .modal-form-policy-label {
-  display: flex;
-  justify-content: center;
-
-  padding-left: 51px;
+  display: inline-block;
+  padding-left: 48px;
   margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
 }
 .modal-form-policy {
+  position: absolute;
   appearance: none;
-  transition: cursor 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
-.modal-form-policy-label:hover {
-  cursor: pointer;
-}
+
 .modal-form-policy-label::before {
   content:'';
   display: inline-block;
@@ -847,14 +848,17 @@
   margin-top: 3px;
   width: 16px;
   height:15px;
-  outline: 0.75px solid #000000;
+  border: 0.75px solid #000000;
   border-radius: 2px;
 }
 .modal-form-policy:checked + .modal-form-policy-label::before {
+  background-color: var(--accent-color);
   background-image: url("../images/checked.svg");
   background-size: contain;
-  background-origin: content-box;
+  background-origin: border-box;
+  border-color: transparent;
 }
+
 .terms {
   padding-right: 51px;
   font-family: var(--main-font);
@@ -865,7 +869,7 @@
   text-decoration-line: underline;
   color: var(--accent-color);
 }
-.agreement {
+.modal-form-policy-label {
   font-family: var(--main-font);
   font-weight: 400;
   font-size: 14px;
@@ -913,7 +917,7 @@
   height: 50px;
   margin-right: 12px;
   padding-left: 16px;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.6);
 
   
   background-color: var(--dark-bg-color);
